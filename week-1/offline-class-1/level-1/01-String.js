@@ -24,7 +24,7 @@ function findLastIndexOf(str, target) {
   console.log("Original String:", str);
   console.log("Index:", str.lastIndexOf(target));
 }
-findLastIndexOf("Hello World World", "World");
+findLastIndexOf("Hello World World", "ld");
 
 // slice
 function getSlice(str, start, end) {
@@ -45,7 +45,7 @@ function replaceString(str, target, replacement) {
   console.log("Original String:", str);
   console.log("After replace:", str.replace(target, replacement));
 }
-replaceString("Hello World", "World", "JavaScript");
+replaceString("Hello World World", "World", "JavaScript");
 
 // split
 function splitString(str, separator) {
