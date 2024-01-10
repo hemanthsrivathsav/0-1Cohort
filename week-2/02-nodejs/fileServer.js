@@ -15,6 +15,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+<<<<<<< HEAD
 const port = 3000 ;
 const app = express();
 
@@ -53,5 +54,9 @@ app.all('*',(req,res)=>{
 
 
 app.listen(port,()=>(console.log(`listening to port ${port}`)))
+=======
+const app = express();
+
+>>>>>>> fc7890a68a2e92ce9c052e88ae0007db2d2601b8
 
 module.exports = app;

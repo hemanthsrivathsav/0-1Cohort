@@ -5,13 +5,17 @@
  */
 
 function wait1(t) {
+<<<<<<< HEAD
   return new Promise((resolve,reject)=>(
     setTimeout(()=>resolve(t),t*1000)
   ));
+=======
+>>>>>>> fc7890a68a2e92ce9c052e88ae0007db2d2601b8
 
 }
 
 function wait2(t) {
+<<<<<<< HEAD
   return new Promise((resolve,reject)=>(
     setTimeout(()=>resolve(t),t*1000)
   ));
@@ -38,4 +42,17 @@ function calculateTime(t1, t2, t3) {
 }
 
 
+=======
+
+}
+
+function wait3(t) {
+
+}
+
+function calculateTime(t1, t2, t3) {
+
+}
+
+>>>>>>> fc7890a68a2e92ce9c052e88ae0007db2d2601b8
 module.exports = calculateTime;

@@ -6,6 +6,7 @@
  */
 
 function wait1(t) {
+<<<<<<< HEAD
   return new Promise ((resolve,reject)=>(
     setTimeout(()=>resolve(),t*1000)
   ));
@@ -30,6 +31,21 @@ function calculateTime(t1, t2, t3) {
   .then(()=>wait3(t3))
   .then(()=>{const end = Date.now()
     return  end-start })
+=======
+
+}
+
+function wait2(t) {
+
+}
+
+function wait3(t) {
+
+}
+
+function calculateTime(t1, t2, t3) {
+
+>>>>>>> fc7890a68a2e92ce9c052e88ae0007db2d2601b8
 }
 
 module.exports = calculateTime;

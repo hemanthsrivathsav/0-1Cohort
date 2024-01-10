@@ -19,9 +19,15 @@
   3. POST /todos - Create a new todo item
     Description: Creates a new todo item.
     Request Body: JSON object representing the todo item.
+<<<<<<< HEAD
     Response: 201 Created with the ID of the created todo item in JSON format. eg: {id: 1}  
     Example: POST http://localhost:3000/todos
     Request Body: { "title": "Buy groceries", "completed": false,   " }
+=======
+    Response: 201 Created with the ID of the created todo item in JSON format. eg: {id: 1}
+    Example: POST http://localhost:3000/todos
+    Request Body: { "title": "Buy groceries", "completed": false, description: "I should buy groceries" }
+>>>>>>> fc7890a68a2e92ce9c052e88ae0007db2d2601b8
     
   4. PUT /todos/:id - Update an existing todo item by ID
     Description: Updates an existing todo item identified by its ID.
@@ -41,6 +47,7 @@
  */
   const express = require('express');
   const bodyParser = require('body-parser');
+<<<<<<< HEAD
   const port = 3000 ;  
   const app = express();
   app.use(express.json());
@@ -126,5 +133,11 @@
   app.all('*',(req,res)=>{
     res.status(404).send('Route not FOund');
   });
+=======
+  
+  const app = express();
+  
+  app.use(bodyParser.json());
+>>>>>>> fc7890a68a2e92ce9c052e88ae0007db2d2601b8
   
   module.exports = app;
