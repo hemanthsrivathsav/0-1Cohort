@@ -85,9 +85,11 @@
     }
   });
   
+
   // for all other routes, return 404
   app.use((req, res, next) => {
     res.status(404).send();
   });
   
+  app.listen(port,()=>(console.log(`listening on port ${port}`)));
   module.exports = app;
