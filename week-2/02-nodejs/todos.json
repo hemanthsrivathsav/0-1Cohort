@@ -1,20 +1,8 @@
 [
   {
     "id": 1,
-    "title": "Talked to her ",
+    "title": "Talked ",
     "description": " Done ",
-    "completed": false
-  },
-  {
-    "id": 2,
-    "title": "Buy oil ",
-    "description": " peanut ",
-    "completed": false
-  },
-  {
-    "id": 3,
-    "title": "Buy food ",
-    "description": " bread jam ",
     "completed": false
   }
 ]

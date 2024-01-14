@@ -8,10 +8,6 @@ app.use(bodyParser.json());
 
 let ids = 0 ;
 
-function getTodos(){
-
-}
-
 app.get('/todos', (req,res)=>{
   fs.readFile('todos.json','utf-8',(err,data)=>{
     if (err){
@@ -97,6 +93,23 @@ app.put('/todos/:id',(req,res)=>{
   });
 });
 
+app.delete('/todos/:id',(req,res)=>{
+  fs.readFile('./todos.json','utf-8',(err,data)=>{
+    if(err) throw err ;
+    const todos = JSON.parse(data);
+    const id = parseInt(req.params.id);
+    const indx = todos.indexOf(todos.find((element)=>element.id === id));
+    if (indx === -1){
+      res.status(404).send("ID Not Found.");
+    }else{
+      todos.splice(indx,1);
+      fs.writeFile('./todos.json',JSON.stringify(todos,null,2),(err)=>{
+        if(err) throw err ;
+        res.send("Succesfully Deleted. ");
+      })
+    }
+  });
+});
 
 app.listen(port,()=>(console.log(`listening on port ${port}`)));
 
