@@ -12,16 +12,44 @@ const app = express();
 // clears every one second
 
 let numberOfRequestsForUser = {};
+let reqs = 1 ;
+
+
+function addUser(req,res,next){
+  let userId = req.headers['user-id'];
+  if(!numberOfRequestsForUser[userId]){
+    numberOfRequestsForUser[userId] = {count:reqs};
+  }else{
+    let ct = numberOfRequestsForUser[userId].count;
+    numberOfRequestsForUser[userId].count = ct+1 ;
+  }
+  next();
+}
+
+function limitRate(req,res,next){
+  let userId = req.headers['user-id'];
+  if (numberOfRequestsForUser[userId].count >= 5) {
+    res.status(404).json({ msg: 'Too many requests wait for 5 sec' });
+  } else {
+    next();
+  }
+  // console.log(numberOfRequestsForUser);
+}
+
+app.use(addUser);
+app.use(limitRate);
+
 setInterval(() => {
     numberOfRequestsForUser = {};
-}, 1000)
+}, 1000);
 
-app.get('/user', function(req, res) {
+app.get('/user',function(req, res) {
   res.status(200).json({ name: 'john' });
 });
 
 app.post('/user', function(req, res) {
   res.status(200).json({ msg: 'created dummy user' });
 });
+
 
 module.exports = app;
